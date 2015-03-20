@@ -19,6 +19,7 @@ RSpec.configure do |config|
   require 'spec_helper'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
+  require 'rails_helper'
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
