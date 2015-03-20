@@ -1,2 +1,13 @@
-<h1>Professional-grade Ruby on Rails web application</h1>
-<p>Hosted on Heroku, this application utilizes lightweight, test driven design with automated test suite; data modeling; design in Bootstrap; and action mailer.</p>
+<!--provide and yield are Ruby functions-->
+<% provide(:title, "Home") %>
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <title><% yield(:title) %> | #{@base_title}</title>
+    </head>
+    <body>
+        <h1>Professional-grade Ruby on Rails web application</h1>
+        <p>Hosted on Heroku, this application utilizes lightweight, test driven design with automated test suite; data modeling; design in Bootstrap; and action mailer.</p>
+    </body>
+</html>

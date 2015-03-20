@@ -1,2 +1,12 @@
-<h1>Help has arrived.</h1>
-<p></p>
+<% provide(:title, "Help") %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><% yield(:title) %> | #{@base_title}</title>
+</head>
+<body>
+    <h1>Help has arrived.</h1>
+    <p></p>
+</body>
+</html>
