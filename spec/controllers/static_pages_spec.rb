@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe StaticPagesController, :type => :controller do
 
+  render_views
+
   before :each do
     @base_title = "Micro"
   end
@@ -9,8 +11,7 @@ RSpec.describe StaticPagesController, :type => :controller do
   describe "GET home" do
     it "returns HTTP success"  do
       get :home
-      expect(response).to render_template :home
-      expect(response).to have_http_status(:success)
+      expect(response).to be_success
       assert_select "title", "Home | #{@base_title}"
     end
   end
@@ -18,7 +19,7 @@ RSpec.describe StaticPagesController, :type => :controller do
   describe "GET help" do
     it "returns HTTP success" do
       get :help
-      assert_response :success
+      expect(response).to be_success
       assert_select "title", "Help | #{@base_title}"
     end
   end
@@ -26,7 +27,7 @@ RSpec.describe StaticPagesController, :type => :controller do
   describe "GET about" do
     it "returns HTTP success" do
       get :about
-      expect(response).to have_http_status(:success)
+      expect(response).to be_success
       assert_select "title", "About | #{@base_title}"
     end
   end
@@ -34,7 +35,7 @@ RSpec.describe StaticPagesController, :type => :controller do
   describe "GET contact" do
     it "returns HTTP success" do
       get :contact
-      assert_response :success
+      expect(response).to be_success
       assert_select "title", "Contact | #{@base_title}"
     end
   end
