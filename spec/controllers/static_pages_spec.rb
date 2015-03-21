@@ -1,8 +1,6 @@
-
-
 describe StaticPagesController do
 
-  def setup
+  before :each do
     @base_title = "Micro"
   end
 
@@ -10,7 +8,7 @@ describe StaticPagesController do
     get :home
     expect(response).to render_template :home
     expect(response).to have_http_status(:success)
-    assert_select "title", "#{@base_title}"
+    assert_select "title", "Home | #{@base_title}"
   end
 
   it "should get help" do
