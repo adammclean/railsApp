@@ -10,5 +10,16 @@ RSpec.describe User, :type => :model do
     it "returns a valid user" do
       assert @user.valid?
     end
+
+    it "ensures presence of user's username" do
+      @user.name = " "
+      assert_not @user.valid?
+    end
+
+    it "ensures presence of user's email" do
+      @user.email = " "
+      assert_not @user.valid?
+    end
+
   end
 end
