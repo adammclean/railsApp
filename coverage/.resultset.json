@@ -3,14 +3,18 @@
     "coverage": {
       "/Users/adammclean1/wdi/projects/projjie4/railsApp/app/models/user.rb": [
         1,
+        2,
         1,
         1,
         1,
         null,
         null,
+        null,
+        null,
+        1,
         null
       ]
     },
-    "timestamp": 1427047913
+    "timestamp": 1427069918
   }
 }

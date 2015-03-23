@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, :type => :model do
 
   before :each do
-    @user = User.new(name: "Example User", email: "user@example.com")
+    @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
   end
 
   describe "User model tests" do
@@ -48,13 +48,17 @@ RSpec.describe User, :type => :model do
       end
     end
 
-    it "ensures email addresses are unique" do
+    it "ensures persisted email addresses are unique" do
       duplicate_user = @user.dup
       duplicate_user.email = @user.email.upcase
       @user.save
       assert_not duplicate_user.valid?
     end
 
+    it "ensures password has minimum length of 6 characters" do
+      @user.password = @user.password_confirmation = "a" * 5
+      assert_not @user.valid?
+    end
 
   end
 end
