@@ -55,6 +55,13 @@ RSpec.describe User, :type => :model do
       assert_not duplicate_user.valid?
     end
 
+    it "ensures email addresses are saved in downcase" do
+      mixed_case_email = "Foo@ExAMPle.CoM"
+      @user.email = mixed_case_email
+      @user.save
+      assert_equal mixed_case_email.downcase, @user.reload.email
+    end
+
     it "ensures password has minimum length of 6 characters" do
       @user.password = @user.password_confirmation = "a" * 5
       assert_not @user.valid?
