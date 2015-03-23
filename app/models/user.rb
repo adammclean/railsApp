@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX }
                     uniqueness: { case_sensitive: false }
 
+  #This 'secure password' method works once we've migrated a password_digest_to_users table
+  has_secure_password
 end
