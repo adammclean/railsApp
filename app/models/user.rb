@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   #This 'secure password' method works once we've migrated a password_digest_to_users table
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, allow_blank: true
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
