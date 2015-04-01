@@ -8,6 +8,12 @@
       </head>
        <body>
         <div class="center jumbotron">
+          <div class = 'container'>
+            <% flash.each do |key, value| %>
+              <div class = "alert alert-<%= key %>"><%= value %></div>
+            <% end %>
+          </div>
+
           <h1>Welcome to Micro</h1>
           <p>Micro is a professional-grade microblogging platform built in Ruby on Rails.</p>
 
