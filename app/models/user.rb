@@ -73,7 +73,8 @@ class User < ActiveRecord::Base
 
   # Defines a proto-feed; ? is to avoid displaying user id
   def feed
-    Micropost.where("user_id = ?", id)
+    # Micropost.where("user_id = ?", id)
+    microposts
   end
 
   private
