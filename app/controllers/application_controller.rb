@@ -6,4 +6,15 @@ class ApplicationController < ActionController::Base
   #This is an important line that allows our sessions helper log_in method be available to our sessions controller
 
   include SessionsHelper
+
+
+private
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
 end
