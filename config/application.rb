@@ -1,5 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
+
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -31,5 +32,8 @@ module RailsApp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.initialize_on_precompile = false
+    # Include authenticity token in remote forms
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+
   end
 end
