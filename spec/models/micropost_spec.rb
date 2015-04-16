@@ -5,6 +5,7 @@ RSpec.describe Micropost, :type => :model do
 
   before :each do
     @user = users(:michael)
+    #@micropost = Micropost.new
     @micropost = @user.microposts.build(content: "Lorem ipsum")
   end
 
